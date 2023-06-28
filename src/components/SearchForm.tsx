@@ -13,7 +13,6 @@ const SearchForm = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      // Create a new instance of AbortController
       const controller = new AbortController();
       controllerRef.current = controller;
 
@@ -30,24 +29,20 @@ const SearchForm = () => {
       }
     };
 
-    // Cancel the previous request and reset the current controller
     if (controllerRef.current) {
       controllerRef.current.abort();
       controllerRef.current = null;
     }
 
-    // Cancel the previous timeout, if any
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
 
-    // Set a new timeout to execute the request after 500ms
     timeoutRef.current = setTimeout(() => {
       fetchData();
-      timeoutRef.current = null; // Reset the current timeout
+      timeoutRef.current = null;
     }, 500);
 
-    // Clear the timeout and controller on component unmount
     return () => {
       if (controllerRef.current) {
         controllerRef.current.abort();
