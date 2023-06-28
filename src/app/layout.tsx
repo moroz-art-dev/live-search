@@ -3,6 +3,7 @@
 import createCache from '@emotion/cache';
 import {CacheProvider} from '@emotion/react';
 import {ThemeProvider as EmotionThemeProvider} from '@emotion/react';
+import {Box} from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import {ThemeProvider} from '@mui/material/styles';
 import {Inter} from 'next/font/google';
@@ -12,6 +13,7 @@ import theme from '../theme/theme';
 
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import {Providers} from '@/redux/provider';
 
 const inter = Inter({subsets: ['latin']});
 const cache = createCache({key: 'css', prepend: true});
@@ -31,11 +33,15 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         <EmotionThemeProvider theme={theme}>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            <body className={inter.className}>
-              <Header logoText={logoText} />
-              <main>{children}</main>
-              <Footer footerText={footerText} />
-            </body>
+            <Providers>
+              <body className={inter.className}>
+                <Header logoText={logoText} />
+                <Box sx={{overflow: 'auto', clear: 'both'}}>
+                  <main>{children}</main>
+                </Box>
+                <Footer footerText={footerText} />
+              </body>
+            </Providers>
           </ThemeProvider>
         </EmotionThemeProvider>
       </CacheProvider>

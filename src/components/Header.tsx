@@ -1,5 +1,7 @@
 import {AppBar, Toolbar, Typography} from '@mui/material';
 
+import LimitSlider from './LimitSlider';
+
 import SearchForm from '../components/SearchForm';
 
 type HeaderProps = {
@@ -8,16 +10,15 @@ type HeaderProps = {
 
 const Header = ({logoText}: HeaderProps) => {
   return (
-    <header>
-      <AppBar position='static'>
-        <Toolbar>
-          <Typography variant='h6' component='div' sx={{flexGrow: 1}}>
-            {logoText}
-          </Typography>
-          <SearchForm />
-        </Toolbar>
-      </AppBar>
-    </header>
+    <AppBar position='static'>
+      <Toolbar sx={{padding: '10px'}}>
+        <Typography variant='h6' component='div' sx={{flexGrow: 1}}>
+          {logoText}
+        </Typography>
+        <LimitSlider />
+        <SearchForm />
+      </Toolbar>
+    </AppBar>
   );
 };
 
