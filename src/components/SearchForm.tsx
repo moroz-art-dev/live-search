@@ -1,10 +1,13 @@
-import {TextField} from '@mui/material';
+'use client';
+
+import {TextField, useTheme} from '@mui/material';
 import {useEffect, useRef} from 'react';
 
 import {setSearchText, setSearchResults} from '../redux/features/searchSlice';
 import {useAppDispatch, useAppSelector} from '../redux/hooks';
 
 const SearchForm = () => {
+  const theme = useTheme();
   const dispatch = useAppDispatch();
   const {searchText, limit} = useAppSelector(state => state.search);
 
@@ -67,9 +70,18 @@ const SearchForm = () => {
     <form onSubmit={handleSubmit}>
       <TextField
         label='Search'
-        variant='outlined'
+        variant='filled'
         value={searchText}
         onChange={handleChange}
+        InputLabelProps={{
+          style: {
+            color: theme.palette.primary.main,
+          },
+        }}
+        sx={{
+          backgroundColor: theme.palette.background.default,
+          borderColor: theme.palette.info.main,
+        }}
       />
     </form>
   );

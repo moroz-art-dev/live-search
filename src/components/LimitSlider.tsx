@@ -1,10 +1,11 @@
-import {Slider, Typography, Box} from '@mui/material';
+import {Slider, Typography, Box, useTheme} from '@mui/material';
 import React from 'react';
 
 import {setLimit} from '../redux/features/searchSlice';
 import {useAppDispatch, useAppSelector} from '../redux/hooks';
 
 const LimitSlider: React.FC = () => {
+  const theme = useTheme();
   const dispatch = useAppDispatch();
   const {min, max, step, limit} = useAppSelector(state => state.search);
 
@@ -19,8 +20,12 @@ const LimitSlider: React.FC = () => {
   };
 
   return (
-    <Box sx={{marginLeft: '20px', marginRight: '20px'}}>
-      <Typography variant='body1' gutterBottom>
+    <Box sx={{marginLeft: '20px', marginRight: '20px', width: '25%'}}>
+      <Typography
+        variant='body1'
+        gutterBottom
+        sx={{color: theme.palette.secondary.main}}
+      >
         Limit: {limit}
       </Typography>
       <Slider
@@ -30,6 +35,10 @@ const LimitSlider: React.FC = () => {
         min={min}
         max={max}
         step={step}
+        sx={{
+          color: theme.palette.secondary.main,
+          width: '100%',
+        }}
       />
     </Box>
   );

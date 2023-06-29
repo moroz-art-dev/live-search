@@ -1,4 +1,4 @@
-import {AppBar, Toolbar, Typography} from '@mui/material';
+import {AppBar, Toolbar, Typography, useTheme} from '@mui/material';
 
 import LimitSlider from './LimitSlider';
 
@@ -9,10 +9,15 @@ type HeaderProps = {
 };
 
 const Header = ({logoText}: HeaderProps) => {
+  const theme = useTheme();
   return (
-    <AppBar position='static'>
+    <AppBar position='static' sx={{marginBottom: 2}}>
       <Toolbar sx={{padding: '10px'}}>
-        <Typography variant='h6' component='div' sx={{flexGrow: 1}}>
+        <Typography
+          variant='h6'
+          component='div'
+          sx={{flexGrow: 1, color: theme.palette.success.main}}
+        >
           {logoText}
         </Typography>
         <LimitSlider />

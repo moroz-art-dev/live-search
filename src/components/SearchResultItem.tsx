@@ -1,4 +1,5 @@
 import {Card, CardContent, CardMedia, Typography} from '@mui/material';
+import React from 'react';
 
 import {SearchResult} from '../redux/features/searchSlice';
 import {useAppSelector} from '../redux/hooks';
@@ -16,10 +17,10 @@ const SearchResultItem: React.FC<SearchResultItemProps> = ({result}) => {
   );
 
   return (
-    <Card>
+    <Card style={{height: '100%'}}>
       <CardMedia
         component='img'
-        height='150'
+        height={150}
         image={result.thumbnailUrl}
         alt={result.title}
       />
