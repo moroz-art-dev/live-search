@@ -24,13 +24,21 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       </head>
       <CustomThemeProvider>
         <Providers>
-          <body className={inter.className}>
+          <Box
+            component='body'
+            className={inter.className}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              minHeight: '100vh',
+            }}
+          >
             <Header logoText={logoText} />
-            <Box sx={{overflow: 'auto', clear: 'both'}}>
-              <main>{children}</main>
+            <Box component='main' sx={{flexGrow: 1}}>
+              {children}
             </Box>
             <Footer footerText={footerText} />
-          </body>
+          </Box>
         </Providers>
       </CustomThemeProvider>
     </html>

@@ -1,7 +1,7 @@
 import {Slider, Typography, Box, useTheme} from '@mui/material';
 import React from 'react';
 
-import {setLimit} from '../redux/features/searchSlice';
+import {setLimit, setPage, onHasMore} from '../redux/features/searchSlice';
 import {useAppDispatch, useAppSelector} from '../redux/hooks';
 
 const LimitSlider: React.FC = () => {
@@ -15,6 +15,8 @@ const LimitSlider: React.FC = () => {
     activeThumb: number
   ) => {
     if (typeof newValue === 'number') {
+      dispatch(onHasMore());
+      dispatch(setPage(1));
       dispatch(setLimit(newValue));
     }
   };

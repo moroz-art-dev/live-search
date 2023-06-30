@@ -6,13 +6,11 @@ type FooterProps = {
 
 const Footer = ({footerText}: FooterProps) => {
   return (
-    <footer>
-      <Box py={2} bgcolor='grey.200'>
-        <Typography variant='body2' align='center'>
-          {footerText}
-        </Typography>
-      </Box>
-    </footer>
+    <Box component='footer' py={2} bgcolor='grey.200'>
+      <Typography variant='body2' align='center'>
+        {footerText}
+      </Typography>
+    </Box>
   );
 };
 
