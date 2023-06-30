@@ -6,13 +6,10 @@ import {
   useMediaQuery,
 } from '@mui/material';
 
-import LimitSlider from './LimitSlider';
+import LimitSlider from '@/components/LimitSlider';
+import SearchForm from '@/components/SearchForm';
 
-import SearchForm from '../components/SearchForm';
-
-type HeaderProps = {
-  logoText: string;
-};
+import {HeaderProps} from '@/types';
 
 const Header = ({logoText}: HeaderProps) => {
   const theme = useTheme();

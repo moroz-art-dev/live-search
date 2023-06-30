@@ -1,12 +1,9 @@
 import {Card, CardContent, CardMedia, Typography} from '@mui/material';
 import React from 'react';
 
-import {SearchResult} from '../redux/features/searchSlice';
-import {useAppSelector} from '../redux/hooks';
+import {useAppSelector} from '@/redux/hooks';
 
-interface SearchResultItemProps {
-  result: SearchResult;
-}
+import {SearchResultItemProps} from '@/types';
 
 const SearchResultItem: React.FC<SearchResultItemProps> = ({result}) => {
   const searchText = useAppSelector(state => state.search.searchText);

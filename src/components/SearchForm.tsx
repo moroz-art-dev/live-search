@@ -2,8 +2,8 @@
 
 import {Box, TextField, useTheme, useMediaQuery} from '@mui/material';
 
-import {setSearchText, onHasMore, setPage} from '../redux/features/searchSlice';
-import {useAppDispatch, useAppSelector} from '../redux/hooks';
+import {setSearchText, onHasMore, setPage} from '@/redux/features/searchSlice';
+import {useAppDispatch, useAppSelector} from '@/redux/hooks';
 
 const SearchForm = () => {
   const theme = useTheme();

@@ -1,17 +1,11 @@
 import {Grid} from '@mui/material';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-import Loading from './Loading';
-import NoMoreResults from './NoMoreResults';
-import SearchResultItem from './SearchResultItem';
+import Loading from '@/components/Loading';
+import NoMoreResults from '@/components/NoMoreResults';
+import SearchResultItem from '@/components/SearchResultItem';
 
-import {SearchResult} from '../redux/features/searchSlice';
-
-interface SearchResultListProps {
-  results: SearchResult[];
-  hasMore: boolean;
-  loadMore: () => void;
-}
+import {SearchResultListProps} from '@/types';
 
 const SearchResultList: React.FC<SearchResultListProps> = ({
   results,

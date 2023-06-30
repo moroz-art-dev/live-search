@@ -1,15 +1,14 @@
 'use client';
 import React, {useEffect, useRef} from 'react';
 
+import SearchResultList from '@/components/SearchResultList';
 import {
   nextPage,
   setSearchResults,
   updateSearchResults,
   offHasMore,
-} from '../redux/features/searchSlice';
-import {useAppDispatch, useAppSelector} from '../redux/hooks';
-
-import SearchResultList from '@/components/SearchResultList';
+} from '@/redux/features/searchSlice';
+import {useAppDispatch, useAppSelector} from '@/redux/hooks';
 
 export default function Home() {
   const dispatch = useAppDispatch();

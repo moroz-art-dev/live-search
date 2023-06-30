@@ -1,21 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
-export interface SearchResult {
-  id: number;
-  title: string;
-  thumbnailUrl: string;
-}
-
-interface SearchState {
-  searchText: string;
-  results: SearchResult[];
-  limit: number;
-  min: number;
-  max: number;
-  step: number;
-  page: number;
-  hasMore: boolean;
-}
+import {SearchResult, SearchState} from '@/types';
 
 const initialState: SearchState = {
   searchText: '',

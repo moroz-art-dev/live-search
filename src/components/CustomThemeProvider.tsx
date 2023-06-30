@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import {ThemeProvider} from '@mui/material/styles';
 import React from 'react';
 
-import theme from '../theme/theme';
+import theme from '@/theme';
 
 const cache = createCache({key: 'css', prepend: true});
 

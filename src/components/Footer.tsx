@@ -1,8 +1,6 @@
 import {Box, Typography} from '@mui/material';
 
-type FooterProps = {
-  footerText: string;
-};
+import {FooterProps} from '@/types';
 
 const Footer = ({footerText}: FooterProps) => {
   return (
