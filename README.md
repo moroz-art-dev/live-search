@@ -1,34 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Sure! Here's the README.md with the added screenshot:
 
-## Getting Started
+# live-search
 
-First, run the development server:
+This is a live-search project built with Next.js 13, TypeScript, MUI, and Redux Toolkit.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Demo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+You can check out the live demo of this project at [live-search-kappa.vercel.app](https://live-search-kappa.vercel.app).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Overview
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The project is a live search page that makes requests to `https://jsonplaceholder.typicode.com/photos?q=` and retrieves a list of demo photo cards. It displays a certain number of results initially and dynamically loads more results as the user scrolls the page.
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+The following technologies and dependencies were used in this project:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Next.js: 13.4.7
+- TypeScript: 5.1.3
+- MUI (Material-UI): 5.13.6
+- Redux Toolkit: 1.9.5
+- React: 18.2.0
+- react-infinite-scroll-component: 6.1.0
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Available Scripts
 
-## Deploy on Vercel
+In the project directory, you can run the following scripts:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `npm run dev`: Runs the development server.
+- `npm run build`: Builds the production-ready optimized version of the app.
+- `npm start`: Starts the production server.
+- `npm run lint`: Runs ESLint to check for linting errors.
+- `npm run format`: Formats the code using Prettier.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Please note that this project is set as private and does not have any deployment scripts included in this repository. You can deploy it to your desired hosting platform, such as Vercel or Netlify, using the appropriate deployment configuration for Next.js projects.
+
+Feel free to explore the code and customize it according to your needs.
+
+## Screenshots
+
+![Screenshot 1](/screenshots/screenshot_1.png)
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
