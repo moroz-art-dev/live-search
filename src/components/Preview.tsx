@@ -10,8 +10,7 @@ const Preview = () => {
         <br />
         Enter your search query and experience the demo.
         <br />
-        It fetches a list of images from
-        https://jsonplaceholder.typicode.com/photos.
+        It fetches a list of images from jsonplaceholder.
         <br />
         Adjust the Limit slider to control the number of items loaded at once.
       </Typography>
