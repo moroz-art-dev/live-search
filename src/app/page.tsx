@@ -2,13 +2,9 @@
 import React, {useEffect, useRef} from 'react';
 
 import SearchResultList from '@/components/SearchResultList';
-import {
-  nextPage,
-  setSearchResults,
-  updateSearchResults,
-  offHasMore,
-} from '@/redux/features/searchSlice';
+import {nextPage, setSearchResults} from '@/redux/features/searchSlice';
 import {useAppDispatch, useAppSelector} from '@/redux/hooks';
+import {fetchSearchResults} from '@/services/searchService';
 
 export default function Home() {
   const dispatch = useAppDispatch();
@@ -28,21 +24,9 @@ export default function Home() {
       const controller = new AbortController();
       controllerRef.current = controller;
 
-      try {
-        const res = await fetch(
-          `https://jsonplaceholder.typicode.com/photos?q=${searchText}&_limit=${limit}&_page=${page}`,
-          {signal: controller.signal}
-        );
-        const data = await res.json();
+      await fetchSearchResults(searchText, limit, page, dispatch);
 
-        if (data.length < limit) dispatch(offHasMore());
-
-        if (page > 1) dispatch(updateSearchResults(data));
-        else dispatch(setSearchResults(data));
-      } catch (error) {
-        dispatch(offHasMore());
-        console.error('Error fetching data:', error);
-      }
+      controllerRef.current = null;
     };
 
     if (controllerRef.current) {
