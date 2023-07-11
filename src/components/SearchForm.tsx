@@ -24,7 +24,7 @@ const SearchForm = () => {
   };
 
   return (
-    <Box sx={{width: isSmallScreen ? '100%' : '25%'}}>
+    <Box sx={{width: isSmallScreen ? '70%' : '30%'}}>
       <form onSubmit={handleSubmit}>
         <TextField
           label='Search'

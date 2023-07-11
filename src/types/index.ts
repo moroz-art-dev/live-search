@@ -28,5 +28,4 @@ export interface FetchSearchResultsArgs {
   searchText: string;
   limit: number;
   page: number;
-  dispatch: any;
 }

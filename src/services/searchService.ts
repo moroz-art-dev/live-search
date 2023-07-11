@@ -1,29 +1,19 @@
-import {
-  offHasMore,
-  setSearchResults,
-  updateSearchResults,
-} from '@/redux/features/searchSlice';
-
 import {FetchSearchResultsArgs} from '@/types';
 
-export const fetchSearchResults = async ({
+const fetchResults = async ({
   searchText,
   limit,
   page,
-  dispatch,
 }: FetchSearchResultsArgs) => {
-  try {
-    const res = await fetch(
-      `https://jsonplaceholder.typicode.com/photos?q=${searchText}&_limit=${limit}&_page=${page}`
-    );
-    const data = await res.json();
+  const url = `https://jsonplaceholder.typicode.com/photos?q=${searchText}&_limit=${limit}&_page=${page}`;
+  const res = await fetch(url);
 
-    if (data.length < limit) dispatch(offHasMore());
-
-    if (page > 1) dispatch(updateSearchResults(data));
-    else dispatch(setSearchResults(data));
-  } catch (error) {
-    dispatch(offHasMore());
-    console.error('Error fetching data:', error);
+  if (!res.ok) {
+    throw new Error('Error fetching data');
   }
+
+  const data = await res.json();
+  return data;
 };
+
+export default fetchResults;

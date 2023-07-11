@@ -23,7 +23,7 @@ const LimitSlider: React.FC = () => {
   };
 
   return (
-    <Box sx={{marginLeft: '20px', marginRight: '20px', width: '25%'}}>
+    <Box sx={{marginLeft: '20px', marginRight: '20px', width: '30%'}}>
       <Typography
         variant='body1'
         gutterBottom

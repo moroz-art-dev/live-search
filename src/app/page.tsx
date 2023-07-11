@@ -2,9 +2,12 @@
 import React, {useEffect, useRef} from 'react';
 
 import SearchResultList from '@/components/SearchResultList';
-import {nextPage, setSearchResults} from '@/redux/features/searchSlice';
+import {
+  nextPage,
+  setSearchResults,
+  fetchSearchResults,
+} from '@/redux/features/searchSlice';
 import {useAppDispatch, useAppSelector} from '@/redux/hooks';
-import {fetchSearchResults} from '@/services/searchService';
 
 export default function Home() {
   const dispatch = useAppDispatch();
@@ -24,7 +27,7 @@ export default function Home() {
       const controller = new AbortController();
       controllerRef.current = controller;
 
-      await fetchSearchResults({searchText, limit, page, dispatch});
+      await dispatch(fetchSearchResults({searchText, limit, page})).unwrap();
 
       controllerRef.current = null;
     };
@@ -34,9 +37,7 @@ export default function Home() {
       controllerRef.current = null;
     }
 
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
     timeoutRef.current = setTimeout(() => {
       if (searchText) {
@@ -52,9 +53,7 @@ export default function Home() {
         controllerRef.current.abort();
         controllerRef.current = null;
       }
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
   }, [searchText, limit, page, dispatch]);
 
