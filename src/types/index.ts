@@ -23,3 +23,10 @@ export type SearchResultListProps = {
   hasMore: boolean;
   loadMore: () => void;
 };
+
+export interface FetchSearchResultsArgs {
+  searchText: string;
+  limit: number;
+  page: number;
+  dispatch: any;
+}

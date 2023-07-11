@@ -24,7 +24,7 @@ export default function Home() {
       const controller = new AbortController();
       controllerRef.current = controller;
 
-      await fetchSearchResults(searchText, limit, page, dispatch);
+      await fetchSearchResults({searchText, limit, page, dispatch});
 
       controllerRef.current = null;
     };
