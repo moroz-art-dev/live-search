@@ -2,7 +2,7 @@ Sure! Here's the README.md with the added screenshot:
 
 # live-search
 
-This is a live-search project built with Next.js 13, TypeScript, MUI, and Redux Toolkit.
+This is a live-search project built with Next.js 13, TypeScript, MUI, Redux Toolkit, Redux Toolkit Thunk.
 
 ## Demo
 
